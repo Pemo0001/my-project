@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { cn } from "@/lib/utils";
 import BoxAnimation from "@/components/BoxAnimation";
 import BackgroundImages from "@/components/BackgroundImages";
 import TypewriterText from "@/components/typewritertext";
@@ -14,7 +13,6 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [showButton, setShowButton] = useState(false);
-  const [shouldReposition, setShouldReposition] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -87,9 +85,9 @@ export default function Home() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [sentences.length]);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = () => {
     setCurrentSection(1);
     setExploreClicked(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -107,13 +105,13 @@ export default function Home() {
       <div className="flex overflow-x-hidden">
         {/* Welcome Section */}
         <section className="z-10 min-h-screen w-screen flex-shrink-0 flex items-end" style={{ transform: `translateX(-${currentSection * 100}%)`, transition: "transform 0.8s ease-in-out" }}>
-          <div className="flex items-center gap-8">
+          <div className="flex flex-col sm:flex-row items-center gap-8 px-4 pb-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0, x: 15 }}>
               <TypewriterText text="welcome to my portfolio" delay={50} onComplete={() => setShowButton(true)} />
             </motion.div>
             {showButton && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, ease: "easeInOut" }}>
-                <InteractiveHoverButton onClick={() => scrollToSection("work")}>explore</InteractiveHoverButton>
+                <InteractiveHoverButton onClick={() => scrollToSection()}>explore</InteractiveHoverButton>
               </motion.div>
             )}
           </div>
@@ -121,7 +119,7 @@ export default function Home() {
 
         {/* Work Section */}
         <section id="work" className="relative z-10 min-h-screen w-screen flex-shrink-0 flex flex-col items-center justify-center gap-12" style={{ transform: `translateX(-${currentSection * 100}%)`, transition: "transform 0.8s ease-in-out" }}>
-          <div className="transition-opacity duration-1000 ease-in-out" style={{ opacity: isVisible ? 1 : 0 }}>
+          <div className="transition-opacity duration-1000 ease-in-out">
             <div className="flex justify-center gap-8">
               {sentences[currentIndex].split(" ").map((word, index) => (
                 <motion.h2 key={`${currentIndex}-${word}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} className="text-5xl font-bold text-center">
@@ -138,7 +136,7 @@ export default function Home() {
 
       {/* Selected Works Section */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center gap-12 bg-black snap-start">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-4xl font-normal">
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-4xl font-semibold">
           selected works
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">

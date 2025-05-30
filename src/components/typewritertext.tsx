@@ -1,14 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 interface TypewriterTextProps {
   text: string;
   delay?: number;
   onComplete?: () => void;
+  className?: string;
 }
 
-const TypewriterText = ({ text, delay = 50, onComplete }: TypewriterTextProps) => {
+export default function TypewriterText({ text, delay = 50, onComplete, className }: TypewriterTextProps) {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -25,7 +27,5 @@ const TypewriterText = ({ text, delay = 50, onComplete }: TypewriterTextProps) =
     }
   }, [currentIndex, delay, text, onComplete]);
 
-  return <h1 className="font-clashgrotesk">{displayText}</h1>;
-};
-
-export default TypewriterText;
+  return <h1 className={cn("font-[ClashGrotesk]", className)}>{displayText}</h1>;
+}

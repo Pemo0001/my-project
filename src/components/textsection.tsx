@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 
 interface TextSectionProps {
   className?: string;
-  onExplore?: () => void;
 }
 
-export default function TextSection({ className = "", onExplore }: TextSectionProps) {
+export default function TextSection({ className = "" }: TextSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -23,7 +22,7 @@ export default function TextSection({ className = "", onExplore }: TextSectionPr
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [sentences.length]);
 
   const words = sentences[currentIndex].split(" ");
 
