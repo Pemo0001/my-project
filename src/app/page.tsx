@@ -106,7 +106,7 @@ export default function Home() {
       {/* Horizontal Scroll Container */}
       <div className="flex overflow-x-hidden">
         {/* Welcome Section */}
-        <section className="z-10 min-h-screen w-screen flex-shrink-0 flex items-end" style={{ transform: `translateX(-${currentSection * 100}%)`, transition: "transform 0.8s ease-in-out" }}>
+        <section className="z-10 h-dvh w-screen flex-shrink-0 flex items-end" style={{ transform: `translateX(-${currentSection * 100}%)`, transition: "transform 0.8s ease-in-out" }}>
           <div className="flex flex-col sm:flex-row items-center gap-8 px-4 pb-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0, x: 15 }}>
               <TypewriterText text="welcome to my portfolio" delay={50} onComplete={() => setShowButton(true)} />
