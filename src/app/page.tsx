@@ -112,7 +112,7 @@ export default function Home() {
               <TypewriterText text="welcome to my portfolio" delay={50} onComplete={() => setShowButton(true)} />
             </motion.div>
             {showButton && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, ease: "easeInOut" }} className="self-start pl-4">
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, ease: "easeInOut" }} className="self-start sm:self-auto pl-4">
                 <InteractiveHoverButton onClick={() => scrollToSection()}>explore</InteractiveHoverButton>
               </motion.div>
             )}
