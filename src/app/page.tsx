@@ -191,7 +191,7 @@ export default function Home() {
             i've been coding and designing for a decade.
             <br />
             i do music as well.
-            <br />i love to tell the story, whether it being a song or a website.
+            <br />i love to tell the story, whether it's a website or a song.
           </p>
         </motion.div>
       </section>

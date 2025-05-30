@@ -59,7 +59,8 @@ export default function BoxAnimation() {
           <Image src="/adobe.png" alt="Adobe" width={25} height={22} className="object-contain" />
         </div>
         <h3 className="text-[#eee] font-[ClashGrotesk]">
-          with smooth
+          with <br />
+          smooth
           <br />
           design
         </h3>
@@ -72,14 +73,15 @@ export default function BoxAnimation() {
           <Image src="/supabase.png" alt="Supabase" width={25} height={25} className="object-contain" />
         </div>
         <h3 className="text-[#eee] font-[ClashGrotesk]">
-          and solid
+          and <br />
+          solid
           <br />
-          tech choices
+          tech
         </h3>
       </div>
 
       {Array.from({ length: 100 }).map((_, index) => (
-        <div key={index} className="box h-[1.2vh] w-1/2 bg-[#121314] block -mb-[0.2vh]" />
+        <div key={index} className="box h-[1.2vh] w-1/2 bg-[#071223] block -mb-[0.2vh]" />
       ))}
     </section>
   );
