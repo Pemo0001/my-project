@@ -12,11 +12,9 @@ interface BackgroundImage {
 
 interface BackgroundImagesProps {
   onExplore?: boolean;
-  shouldReposition?: boolean;
-  onRepositionComplete?: () => void;
 }
 
-export default function BackgroundImages({ onExplore, shouldReposition, onRepositionComplete }: BackgroundImagesProps) {
+export default function BackgroundImages({ onExplore }: BackgroundImagesProps) {
   const images = ["/spacedebris.png", "/seayou.png", "/girltalk.png", "/caveman.png", "/sydforsolen.png"];
 
   const [backgroundImages, setBackgroundImages] = useState<BackgroundImage[]>([]);
@@ -82,15 +80,12 @@ export default function BackgroundImages({ onExplore, shouldReposition, onReposi
   }, []);
 
   useEffect(() => {
-    if ((onExplore || shouldReposition) && !isInitialLoad) {
+    if (onExplore && !isInitialLoad) {
       setIsAnimating(true);
       generateRandomImages();
-      setTimeout(() => {
-        setIsAnimating(false);
-        onRepositionComplete?.();
-      }, 1000);
+      setTimeout(() => setIsAnimating(false), 1000);
     }
-  }, [onExplore, shouldReposition, isInitialLoad, onRepositionComplete]);
+  }, [onExplore, isInitialLoad]);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
