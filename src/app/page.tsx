@@ -43,7 +43,6 @@ export default function Home() {
         if (e.deltaX > 0 || e.deltaY > 0) {
           setCurrentSection(1);
           setExploreClicked(true);
-          setShouldReposition(true);
         }
       } else if (currentSection === 1) {
         // Check if the work section is fully in view
@@ -55,7 +54,7 @@ export default function Home() {
             if (e.deltaX < 0 || e.deltaY < 0) {
               e.preventDefault();
               setCurrentSection(0);
-              setShouldReposition(true);
+              setExploreClicked(true);
             }
           }
           // Prevent vertical scrolling if work section is not fully in view
@@ -102,7 +101,7 @@ export default function Home() {
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-white origin-left z-50" style={{ scaleX }} />
 
       {/* Background Images */}
-      <BackgroundImages onExplore={exploreClicked} shouldReposition={shouldReposition} onRepositionComplete={() => setShouldReposition(false)} />
+      <BackgroundImages onExplore={exploreClicked} />
 
       {/* Horizontal Scroll Container */}
       <div className="flex overflow-x-hidden">

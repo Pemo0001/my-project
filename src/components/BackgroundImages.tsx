@@ -83,7 +83,9 @@ export default function BackgroundImages({ onExplore }: BackgroundImagesProps) {
     if (onExplore && !isInitialLoad) {
       setIsAnimating(true);
       generateRandomImages();
-      setTimeout(() => setIsAnimating(false), 1000);
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 1000);
     }
   }, [onExplore, isInitialLoad]);
 
