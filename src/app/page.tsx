@@ -120,7 +120,7 @@ export default function Home() {
         </section>
 
         {/* Work Section */}
-        <section id="work" className="relative z-10 min-h-screen w-screen flex-shrink-0 flex flex-col items-center justify-center gap-12" style={{ transform: `translateX(-${currentSection * 100}%)`, transition: "transform 0.8s ease-in-out" }}>
+        <section id="work" className="relative z-10 h-dvh w-screen flex-shrink-0 flex flex-col items-center justify-center gap-12" style={{ transform: `translateX(-${currentSection * 100}%)`, transition: "transform 0.8s ease-in-out" }}>
           <div className="transition-opacity duration-1000 ease-in-out w-[80%] mx-auto">
             <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
               {sentences[currentIndex].split(" ").map((word, index) => (
