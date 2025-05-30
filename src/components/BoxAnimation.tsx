@@ -52,7 +52,7 @@ export default function BoxAnimation() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-screen h-screen overflow-hidden bg-[#111] relative">
+    <section ref={sectionRef} className="w-screen h-screen overflow-hidden bg-black relative">
       <div className="absolute block text-center z-10 w-1/2 top-[calc(50vh-120px)] left-0">
         <div className="flex justify-center gap-8 mb-8">
           <Image src="/figma.png" alt="Figma" width={25} height={25} className="object-contain" />
@@ -79,7 +79,7 @@ export default function BoxAnimation() {
       </div>
 
       {Array.from({ length: 100 }).map((_, index) => (
-        <div key={index} className="box h-[1.2vh] w-1/2 bg-black block -mb-[0.2vh]" />
+        <div key={index} className="box h-[1.2vh] w-1/2 bg-[#121314] block -mb-[0.2vh]" />
       ))}
     </section>
   );

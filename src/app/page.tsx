@@ -213,6 +213,11 @@ export default function Home() {
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-4xl font-bold">
           get in touch
         </motion.h2>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <motion.p className="text-gray-400 text-sm cursor-pointer" animate={{ y: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            back to beginning
+          </motion.p>
+        </motion.div>
       </section>
     </main>
   );
