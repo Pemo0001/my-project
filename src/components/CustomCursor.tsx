@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [trail, setTrail] = useState<Array<{ x: number; y: number }>>([]);
-  const TRAIL_LENGTH = 20;
+  const TRAIL_LENGTH = 5;
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
