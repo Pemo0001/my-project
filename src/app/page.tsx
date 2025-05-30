@@ -130,6 +130,11 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <motion.div className="absolute bottom-8 left-1/2 transform -translate-x-1/2" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.5 }}>
+            <motion.p className="text-gray-400 text-sm" animate={{ y: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
+              scroll down
+            </motion.p>
+          </motion.div>
         </section>
       </div>
 
@@ -138,8 +143,8 @@ export default function Home() {
 
       {/* Selected Works Section */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center gap-12 bg-black snap-start">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-4xl font-semibold">
-          selected works
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="text-4xl font-semibold">
+          selected work
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
           {[

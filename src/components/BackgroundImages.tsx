@@ -81,6 +81,21 @@ export default function BackgroundImages({ onExplore }: BackgroundImagesProps) {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  // Add position swapping effect
+  useEffect(() => {
+    if (isInitialLoad) return;
+
+    const swapInterval = setInterval(() => {
+      setIsAnimating(true);
+      generateRandomImages();
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 1000);
+    }, 3000); // Swap positions every 3 seconds
+
+    return () => clearInterval(swapInterval);
+  }, [isInitialLoad]);
+
   useEffect(() => {
     if (onExplore && !isInitialLoad) {
       setIsAnimating(true);
