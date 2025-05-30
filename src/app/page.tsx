@@ -112,7 +112,7 @@ export default function Home() {
               <TypewriterText text="welcome to my portfolio" delay={50} onComplete={() => setShowButton(true)} />
             </motion.div>
             {showButton && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, ease: "easeInOut" }}>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, ease: "easeInOut" }} className="self-start pl-4">
                 <InteractiveHoverButton onClick={() => scrollToSection()}>explore</InteractiveHoverButton>
               </motion.div>
             )}
@@ -121,10 +121,10 @@ export default function Home() {
 
         {/* Work Section */}
         <section id="work" className="relative z-10 min-h-screen w-screen flex-shrink-0 flex flex-col items-center justify-center gap-12" style={{ transform: `translateX(-${currentSection * 100}%)`, transition: "transform 0.8s ease-in-out" }}>
-          <div className="transition-opacity duration-1000 ease-in-out">
-            <div className="flex justify-center gap-8">
+          <div className="transition-opacity duration-1000 ease-in-out w-[80%] mx-auto">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
               {sentences[currentIndex].split(" ").map((word, index) => (
-                <motion.h2 key={`${currentIndex}-${word}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} className="text-5xl font-bold text-center">
+                <motion.h2 key={`${currentIndex}-${word}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} className="text-3xl sm:text-5xl font-bold text-center">
                   {word}
                 </motion.h2>
               ))}
@@ -142,7 +142,7 @@ export default function Home() {
       <BoxAnimation />
 
       {/* Selected Works Section */}
-      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center gap-12 bg-black snap-start">
+      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center gap-12 bg-black snap-start pt-24 sm:pt-0">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="text-4xl font-semibold">
           selected work
         </motion.h2>
