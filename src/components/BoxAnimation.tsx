@@ -81,7 +81,7 @@ export default function BoxAnimation() {
       </div>
 
       {Array.from({ length: 100 }).map((_, index) => (
-        <div key={index} className="box h-[1.2vh] w-1/2 bg-[#0f1116] block -mb-[0.2vh]" />
+        <div key={index} className="box h-[1.2vh] w-1/2 bg-[#131f47] block -mb-[0.2vh]" />
       ))}
     </section>
   );
