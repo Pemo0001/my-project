@@ -149,16 +149,16 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
           {[
             {
-              title: "Syd for Solen",
-              description: "Danish music festival",
-              image: "/sydforsolen.png",
-              link: "https://sydforsolen.vercel.app/",
-            },
-            {
               title: "Caveman",
               description: "Music producer Lucas Delacroix",
               image: "/caveman.png",
               link: "https://cavemanstudiogruppe6.netlify.app/",
+            },
+            {
+              title: "Syd for Solen",
+              description: "Danish music festival",
+              image: "/sydforsolen.png",
+              link: "https://sydforsolen.vercel.app/",
             },
             {
               title: "Space Debris",
@@ -190,7 +190,7 @@ export default function Home() {
           <p className="text-xl">
             i've been coding and designing for a decade.
             <br />
-            i do music as well.
+            i make music as well.
             <br />i love to tell the story, whether it's a website or a song.
           </p>
         </motion.div>
